@@ -1,9 +1,9 @@
 
 public class supermissile extends Missile { //A stronger and faster missile with a larger hitbox
 
-    private final int BOARD_WIDTH = 700;
+    private final int BOARD_WIDTH = 800;
     private final int MISSILE_SPEED = 6;
-    public int damage = 600;
+    public int damage = 1000;
     public long startTime;
     public long endTime = System.currentTimeMillis(); //Avoid runtime on first ever fire
     public int fireDelay = 1000; //1000 ms = 1s
@@ -18,7 +18,7 @@ public class supermissile extends Missile { //A stronger and faster missile with
     }
     
     private void initMissile() {  //Try to fire  
-    	loadImage("icons/supermissile.png");  
+    	loadImage("mediummissile.png");  
         getImageDimensions();	
     }
 

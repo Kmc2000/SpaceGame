@@ -1,3 +1,4 @@
+/*
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
@@ -32,3 +33,4 @@ public class ThreadAnimationExample extends JFrame {
         });
     }
 }
+*/

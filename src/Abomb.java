@@ -1,8 +1,6 @@
+public class Abomb extends AMissile {
 
-
-public class AMissile extends Sprite {
-
-    private final int BOARD_WIDTH = 500;
+	private final int BOARD_WIDTH = 500;
     private final int MISSILE_SPEED = 7;
     public int damage = 50;
     public long startTime;
@@ -10,8 +8,9 @@ public class AMissile extends Sprite {
     public int fireDelay = 1000; //1000 ms = 1s
     public long currentTime = System.currentTimeMillis();
     public long nextfire = 1;
+    public int explodetimer = 150; //N ms to explode after being fired
 
-    public AMissile(int x, int y) {
+    public Abomb(int x, int y) {
         super(x, y);
         
         initMissile();
@@ -23,17 +22,21 @@ public class AMissile extends Sprite {
     }
 
     public void deleteMissile(Alien Alien) {
-    	Alien.missiles.remove(this);
+    	Alien.bombs.remove(this);
     }
 
-    public void move() {
+    public void move() {#error fix this 
         x -= MISSILE_SPEED;
+        explodetimer --; //KaBOOOM
+        System.out.println(explodetimer);
+        if(explodetimer <= 0) {
+        	explode();
         }
-    public void process(Alien Alien) {		//Process runs every tick
+        }
+    public void explode() {		//Process runs every tick
+    	loadImage("ABomb.png");  
+        getImageDimensions();
+        System.out.print("boom");
     	return;
-    //	if (x > BOARD_WIDTH) {
-      //      vis = false;
-      //      deleteMissile(Alien);
-    //	}
     }
 }

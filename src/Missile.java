@@ -1,9 +1,9 @@
 
 public class Missile extends Sprite {
 
-    private final int BOARD_WIDTH = 700;
-    private final int MISSILE_SPEED = 6;
-    public int damage = 600;
+    private final int BOARD_WIDTH = 900;
+    private final int MISSILE_SPEED = 8;
+    public int damage = 50;
     public long startTime;
     public long endTime = System.currentTimeMillis(); //Avoid runtime on first ever fire
     public int fireDelay = 1000; //1000 ms = 1s
@@ -18,7 +18,7 @@ public class Missile extends Sprite {
     }
     
     private void initMissile() {  //Try to fire   
-    	loadImage("icons/missile.png");  
+    	loadImage("missile.png");  
         getImageDimensions();	
     }
 

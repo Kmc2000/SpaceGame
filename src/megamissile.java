@@ -1,7 +1,7 @@
 
 public class megamissile extends Missile { //A stronger and faster missile with a larger hitbox
 
-    private final int BOARD_WIDTH = 700;
+    private final int BOARD_WIDTH = 800;
     private final int MISSILE_SPEED = 6;
     public int damage = 600;
     public long startTime;
@@ -18,7 +18,7 @@ public class megamissile extends Missile { //A stronger and faster missile with 
     }
     
     private void initMissile() {  //Try to fire  
-    	loadImage("icons/megamissile.png");  
+    	loadImage("hugemissile.png");  
         getImageDimensions();	
     }
 
