@@ -1,4 +1,7 @@
 # SpaceGame
 This is a private repo for a game I'm working on.
 
-Eclipse is the editor I used. To run it you'll need that as I haven't made a compiled version yet...
+Editing of this project is not permitted at the moment. I may change this.
+
+This project uses example code from http://zetcode.com/tutorials/javagamestutorial/basics/
+No license has been specified for that tutorial.
