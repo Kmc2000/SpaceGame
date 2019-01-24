@@ -68,7 +68,7 @@ public class Board extends JPanel implements ActionListener {
         ingame = true;
         setBounds(0, 0, 700, 700);
         
-        bg = Toolkit.getDefaultToolkit().createImage("space.jpg");
+        bg = Toolkit.getDefaultToolkit().createImage("icons/space.jpg");
         
         //setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
 

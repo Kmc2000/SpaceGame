@@ -18,7 +18,7 @@ public class megamissile extends Missile { //A stronger and faster missile with 
     }
     
     private void initMissile() {  //Try to fire  
-    	loadImage("megamissile.png");  
+    	loadImage("icons/megamissile.png");  
         getImageDimensions();	
     }
 

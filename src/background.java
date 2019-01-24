@@ -9,7 +9,7 @@ public class background extends Sprite {
     }
 
     private void initbackground() {
-        loadImage("space.jpg");
+        loadImage("icons/space.jpg");
        // getImageDimensions();
     }
 }

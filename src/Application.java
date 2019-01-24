@@ -24,7 +24,6 @@ public class Application extends JFrame {
         setLayout(null);
     	//getContentPane().add(bg);
     	
-        System.out.println("lrefskm,x");
        	getContentPane().add(new Board());
     }    
     

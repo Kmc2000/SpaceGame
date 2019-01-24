@@ -18,7 +18,7 @@ public class Alien extends Sprite {
     }
 
     private void initAlien() {
-        loadImage("alien.png");
+        loadImage("icons/alien.png");
         getImageDimensions();
     }
 
