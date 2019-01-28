@@ -9,7 +9,7 @@ public class Weaponicon extends Sprite {
 		initIcon();
 	}
     private void initIcon() {
-        loadImage("weaponsicon.png");
+        loadImage("icons/weaponsicon.png");
         getImageDimensions();
         setVisible(false);
     }

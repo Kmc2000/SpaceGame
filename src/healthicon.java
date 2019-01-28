@@ -11,7 +11,7 @@ public class healthicon extends Sprite {
 		initIcon();
 	}
     private void initIcon() {
-        loadImage("healthicon.png");
+        loadImage("icons/healthicon.png");
         getImageDimensions();
         setVisible(false);
     }

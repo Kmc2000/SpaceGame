@@ -17,7 +17,7 @@ public class Abomb extends AMissile {
     }
     
     private void initMissile() {  //Try to fire   
-    	loadImage("amissile.png");  
+    	loadImage("icons/amissile.png");  
         getImageDimensions();	
     }
 
@@ -25,7 +25,7 @@ public class Abomb extends AMissile {
     	Alien.bombs.remove(this);
     }
 
-    public void move() {#error fix this 
+    public void move() {//fix this 
         x -= MISSILE_SPEED;
         explodetimer --; //KaBOOOM
         System.out.println(explodetimer);
@@ -34,7 +34,7 @@ public class Abomb extends AMissile {
         }
         }
     public void explode() {		//Process runs every tick
-    	loadImage("ABomb.png");  
+    	loadImage("icons/ABomb.png");  
         getImageDimensions();
         System.out.print("boom");
     	return;

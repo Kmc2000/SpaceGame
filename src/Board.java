@@ -83,8 +83,8 @@ public class Board extends JPanel implements ActionListener {
         layer2.setVisible(true);
         layer3 = new Parallaxlayer3(0,0);
         layer3.setVisible(true);
-        bg = Toolkit.getDefaultToolkit().createImage("spacehuge.png");
-        logo = Toolkit.getDefaultToolkit().createImage("logohuge.png");
+        bg = Toolkit.getDefaultToolkit().createImage("icons/spacehuge.png");
+        logo = Toolkit.getDefaultToolkit().createImage("icons/logohuge.png");
         inmenu = true;
         craft = new Craft(ICRAFT_X, ICRAFT_Y);
         craft.setVisible(false);
@@ -130,6 +130,9 @@ public class Board extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(bg, 0, 0, null);
+        if(inmenu) {
+        	g.drawImage(logo, 100, 100, null);
+        }
         if (ingame || inmenu) {
             drawObjects(g);
         } else {
@@ -189,9 +192,9 @@ public class Board extends JPanel implements ActionListener {
                     }
                 }
                 ArrayList<Abomb> amb = a.getbombs();
-                for ( Abomb missile : amb ) {
-                	if (missile.isVisible()) {
-                        g.drawImage(missile.getImage(), missile.getX(), missile.getY(), this);
+                for ( Abomb bomb : amb ) {
+                	if (bomb.isVisible()) {
+                        g.drawImage(bomb.getImage(), bomb.getX(), bomb.getY(), this);
                     }
                 }
             }

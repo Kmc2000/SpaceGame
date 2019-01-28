@@ -15,7 +15,7 @@ public class Boss extends Alien {
         speed = 3; //he moves up and down not to the left
         isboss = true;
         difficulty = 50;// fire loads
-        loadImage("alieninterceptor.png");
+        loadImage("icons/alieninterceptor.png");
         getImageDimensions();
         this.health = this.max_health; //He starts with the correct HP but as soon as it's hit the HP drops to 200. Hmm.
     }

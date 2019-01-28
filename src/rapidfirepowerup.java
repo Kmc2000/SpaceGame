@@ -8,7 +8,7 @@ public class rapidfirepowerup extends Sprite {
 		initIcon();
 	}
     private void initIcon() {
-        loadImage("weaponicon.png");
+        loadImage("icons/weaponicon.png");
         getImageDimensions();
         setVisible(false);
     }
@@ -17,7 +17,6 @@ public class rapidfirepowerup extends Sprite {
 			return;
 		}
 		craft.rapidfire = true; //except it doesnt work omegalul
-		System.out.print("powerup");
 	}
 	public void move(Craft craft) {
     	x -= speed;

@@ -11,16 +11,16 @@ public class HealthIconn extends Sprite {
 		initIcon();
 	}
     private void initIcon() {
-        loadImage("healthicon.png");
+        loadImage("icons/healthicon.png");
         getImageDimensions();
         setVisible(false);
     }
 	public void healCraft(Craft craft){ //All the collision detection stuff is handled in checkcollisions in board
 		if(craft.score >= cost && craft.health <= craft.max_health){
-			int math = craft.health + health_benefit;
-			if(math > craft.max_health) { //No overhealing
-				int temp_health_benefit = (math-craft.max_health);
-				craft.health += temp_health_benefit;
+			int hp = craft.health; //As to not modify the actual craft's HP
+			int math = (hp + health_benefit);
+			if(math < craft.max_health) { //No overhealing
+				craft.health += health_benefit;
 				craft.score -= cost;
 				return;
 			}

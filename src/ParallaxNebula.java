@@ -3,7 +3,7 @@ public class ParallaxNebula extends Sprite {
 
 	public ParallaxNebula(int x, int y) {
 		super(x, y);
-		loadImage("nubulaehuge.png");
+		loadImage("icons/nubulaehuge.png");
 		getImageDimensions();
 		System.out.println("aa");
 		setVisible(true);

@@ -21,7 +21,7 @@ public class Alien extends Sprite {
     }
 
     private void initAlien() {
-        loadImage("alienwarrior.png");
+        loadImage("icons/alienwarrior.png");
         getImageDimensions();
         Random rand = new Random();
         int s = rand.nextInt(5);//fix me

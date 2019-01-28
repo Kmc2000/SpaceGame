@@ -3,9 +3,8 @@ public class Parallaxlayer3 extends Sprite {
 
 	public Parallaxlayer3(int x, int y) {
 		super(x, y);
-		loadImage("bgspace.png");
+		loadImage("icons/bgspace.png");
 		getImageDimensions();
-		System.out.println("aa");
 		setVisible(true);
 		// TODO Auto-generated constructor stub
 	}

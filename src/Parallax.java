@@ -3,9 +3,8 @@ public class Parallax extends Sprite {
 
 	public Parallax(int x, int y) {
 		super(x, y);
-		loadImage("starshuge.png");
+		loadImage("icons/starshuge.png");
 		getImageDimensions();
-		System.out.println("aa");
 		setVisible(true);
 		// TODO Auto-generated constructor stub
 	}
