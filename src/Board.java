@@ -48,6 +48,8 @@ public class Board extends JPanel implements ActionListener {
     public Parallaxhalf2 layer1half2;
     public ParallaxNebula layer2;
     public Parallaxlayer3 layer3;
+    protected ArrayList<AMissile> missiles = new ArrayList<AMissile>(); //This counts the missiles that the board handles, the craft handles its own. This stops missiles deleting when the aliens die.
+    protected ArrayList<Abomb> bombs = new ArrayList<Abomb>(); //This counts the alien bombs
 
     //TODO: Add different attack types, explosions that pop up
     
@@ -185,14 +187,14 @@ public class Board extends JPanel implements ActionListener {
                 if (a.isVisible()) {
                     g.drawImage(a.getImage(), a.getX(), a.getY(), this);
                 }
-                ArrayList<AMissile> ams = a.getMissiles();
+                ArrayList<AMissile> ams = a.getMissiles(this);
                 for ( AMissile missile : ams ) {
                 	if (missile.isVisible()) {
                         g.drawImage(missile.getImage(), missile.getX(), missile.getY(), this);
                     }
                 }
-                ArrayList<Abomb> amb = a.getbombs();
-                for ( Abomb bomb : amb ) {
+                ArrayList<Abomb> bombs = a.getbombs(this);
+                for ( Abomb bomb : bombs ) {
                 	if (bomb.isVisible()) {
                         g.drawImage(bomb.getImage(), bomb.getX(), bomb.getY(), this);
                     }
@@ -202,7 +204,7 @@ public class Board extends JPanel implements ActionListener {
                 if (a.isVisible()) {
                     g.drawImage(a.getImage(), a.getX(), a.getY(), this);
                 }
-                ArrayList<AMissile> ams = a.getMissiles();
+                ArrayList<AMissile> ams = a.getMissiles(this);
                 for ( AMissile missile : ams ) {
                 	if (missile.isVisible()) {
                         g.drawImage(missile.getImage(), missile.getX(), missile.getY(), this);
@@ -280,7 +282,7 @@ public class Board extends JPanel implements ActionListener {
     	layer2.process();
     	layer3.process(this);
     	 for(Alien a : aliens){
-        	 for (AMissile E : a.missiles) {
+        	 for (AMissile E : missiles) {
               	Rectangle r31 = craft.getBounds();
               	Rectangle r33 = E.getBounds();
 
@@ -294,7 +296,7 @@ public class Board extends JPanel implements ActionListener {
                       	E.setVisible(false); //aliens now randomly die for no reason kek
                       }               		 
         	 }
-        	 for (Abomb E : a.bombs) {
+        	 for (Abomb E : bombs) {
                	Rectangle r313 = craft.getBounds();
                	Rectangle r333 = E.getBounds();
 
@@ -341,57 +343,33 @@ public class Board extends JPanel implements ActionListener {
                 }
             }	
         }
-        for(Alien a : aliens){
-	        ArrayList<AMissile> ams = a.getMissiles();
+	    ArrayList<AMissile> ams = missiles;
 	        if(ams.size() > 0){
 	            for (int i = 0; i < ams.size(); i++) {
 	                AMissile m = ams.get(i);
-	                if(m != null){
-	                	m.process(a);
-	                }
 	                if (m.isVisible()) {
 	                    m.move();
 	                }
 	                else {
 	                	m = null;
 	                }
-	            }	
-	        }       	
-	        ArrayList<Abomb> amb = a.getbombs();
-	        if(amb.size() > 0){
-	            for (int x = 0; x < amb.size(); x++) {
-	                Abomb mm = amb.get(x);
-	                if(mm != null){
-	                	mm.process(a);
-	                }
-	                if (mm.isVisible()) {
-	                    mm.move();
-	                }
-	                else {
-	                	mm = null;
-	                }
-	            }	
-	        }       	
-        }
-        for(Alien a : alienstokill){
-	        ArrayList<AMissile> ams = a.getMissiles();
-	        if(ams.size() > 0){
-	            for (int i = 0; i < ams.size(); i++) {
-	                AMissile m = ams.get(i);
-	                if(m != null){
-	                	m.process(a);
-	                }
-	                if (m.isVisible()) {
-	                    m.move();
-	                }
-	                else {
-	                	m = null;
-	                }
-	            }	
-	        }       	
-        }
-
-
+	    }	     	
+	    ArrayList<Abomb> amb = bombs;
+	    if(amb.size() > 0){
+            for (int x = 0; x < amb.size(); x++) {
+                Abomb mm = amb.get(x);
+                if(mm != null){
+                	mm.process();
+                }
+                if (mm.isVisible()) {
+                    mm.move();
+                }
+                else {
+                	mm = null;
+                }
+            }
+	    }}
+ 	   	
     }
 
     private void updateAliens() {
@@ -410,7 +388,6 @@ public class Board extends JPanel implements ActionListener {
             } else {
         		Alien target = aliens.get(i);
         		alienstokill.add(target);
-        		target.missiles = aliens.get(i).missiles;
             	aliens.remove(i);	
             	}
                 

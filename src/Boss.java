@@ -5,7 +5,6 @@ public class Boss extends Alien {
     public Boss(int x, int y) {
         super(x, y);
         initBoss();
-        fire();
     }
 
     private void initBoss() {
@@ -26,7 +25,7 @@ public class Boss extends Alien {
         boolean changed = false;
         int f = rand.nextInt(50 - board.difficulty);
         if ( f == 0 ) { //FIX ME 
-        	fire();
+        	fire(board);
         }
         if (y >= 750 && !changed) {
         	speed = -2;

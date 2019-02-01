@@ -9,15 +9,12 @@ public class Alien extends Sprite {
     public int max_health = 200;
     public int scoreaward = 50;
     public int speed = 1; //start suuuper slow
-    protected ArrayList<AMissile> missiles = new ArrayList<AMissile>(); //This counts the missiles that the board handles, the craft handles its own. This stops missiles deleting when the aliens die.
-    protected ArrayList<Abomb> bombs = new ArrayList<Abomb>();
     public boolean isboss = false;
     public int difficulty = 100;
     
     public Alien(int x, int y) {
         super(x, y);
         initAlien();
-        fire();
     }
 
     private void initAlien() {
@@ -56,18 +53,24 @@ public class Alien extends Sprite {
         x -= speed;
         int f = rand.nextInt(difficulty - board.difficulty);
         if ( f == 0 ) { //FIX ME 
-        	fire();
+        	fire(board);
         }
     }
-    public void fire(){
-    	bombs.add(new Abomb(x + width, y + height/2));
-    	//missiles.add(new AMissile(x + width, y + height / 2));
+    public void fire(Board board){
+        Random rand = new Random();
+        int firetype = rand.nextInt(2);
+        if(firetype == 1) { //choose either a bomb or a missile
+        	board.bombs.add(new Abomb(x + width, y + height/2));
+        }
+        else {
+        	board.missiles.add(new AMissile(x + width, y + height / 2));
+        }
     }
-    public ArrayList<AMissile> getMissiles() {
-        return missiles;
+    public ArrayList<AMissile> getMissiles(Board board) {
+        return board.missiles;
     }
-    public ArrayList<Abomb> getbombs() {
-        return bombs;
+    public ArrayList<Abomb> getbombs(Board board) {
+        return board.bombs;
     }
     
     public void qdel(Craft craft) {

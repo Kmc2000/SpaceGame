@@ -22,14 +22,14 @@ public class AMissile extends Sprite {
         getImageDimensions();	
     }
 
-    public void deleteMissile(Alien Alien) {
-    	Alien.missiles.remove(this);
+    public void deleteMissile(Board board) {
+    	board.missiles.remove(this);
     }
 
     public void move() {
         x -= MISSILE_SPEED;
         }
-    public void process(Alien Alien) {		//Process runs every tick
+    public void process() {		//Process runs every tick
     	return;
     //	if (x > BOARD_WIDTH) {
       //      vis = false;
