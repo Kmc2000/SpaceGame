@@ -58,7 +58,7 @@ public class Alien extends Sprite {
     }
     public void fire(Board board){
         Random rand = new Random();
-        int firetype = rand.nextInt(2);
+        int firetype = rand.nextInt(4);
         if(firetype == 1) { //choose either a bomb or a missile
         	board.bombs.add(new Abomb(x + width, y + height/2));
         }
