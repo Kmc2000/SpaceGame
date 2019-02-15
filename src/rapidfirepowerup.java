@@ -2,7 +2,10 @@ import java.util.ArrayList;
 
 public class rapidfirepowerup extends Sprite {
 	public int speed = 1;
-    
+	public boolean poweredup = false; //Have we given the craft a powerup? if so, count-down to remove it.
+    public int poweruptime = 7000; //(ms) How long does the craft get a powerup for?
+    private long lastpowerup = 0; //used in delay code
+	
 	public rapidfirepowerup(int x, int y) {
 		super(x, y);
 		initIcon();
@@ -16,11 +19,20 @@ public class rapidfirepowerup extends Sprite {
 		if(!isVisible()) {
 			return;
 		}
-		craft.rapidfire = true; //except it doesnt work omegalul
+		if(!poweredup) {
+			craft.rapidfire = true;
+			poweredup = true;
+			lastpowerup = System.currentTimeMillis();
+		}
+
 	}
 	public void move(Craft craft) {
     	x -= speed;
-    	//y -= (int) Math.sin(x);
+    	long t = System.currentTimeMillis();
+    	if (lastpowerup+poweruptime < t) { //time's up
+        	craft.rapidfire = false;
+        	poweredup = false;
+    	}
     	y = 200;
     	if(x > 900) {
     		x -= 3;
@@ -29,6 +41,7 @@ public class rapidfirepowerup extends Sprite {
             x = 900;
             setVisible(false);
         }
+
 	//	y += 1;
 	}
 }

@@ -35,4 +35,4 @@ public class Missile extends Sprite {
             deleteMissile(craft);
     	}
     }
-}
+} #error OI, add in the new beam sprite when rapidfire is true!!!!
